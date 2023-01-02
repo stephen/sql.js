@@ -13,7 +13,7 @@ Roadmap:
   - [ ] ???
 - [x] Support es modules (i.e. `await import()` syntax) (https://github.com/sql-js/sql.js/issues/284)
 - [x] Add typescript types (https://github.com/sql-js/sql.js/issues/151)
-- [ ] Build a web-only distribution (i.e. without `webpack.resolve.fallback` junk)
+- [x] Build a web-only distribution (i.e. without `webpack.resolve.fallback` junk)
 - [ ] Worker API
 
 # SQLite compiled to JavaScript
