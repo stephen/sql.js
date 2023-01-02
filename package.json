@@ -17,6 +17,9 @@
 	"license": "MIT",
 	"main": "./dist/sql-wasm.js",
 	"module": "./module.js",
+	"browser": {
+		"./module.js": "./module-web.js"
+	},
 	"types": "./types.d.ts",
 	"scripts": {
 		"build": "make",
