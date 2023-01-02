@@ -1,7 +1,7 @@
 {
 	"name": "@stephen/sql.js",
-	"version": "1.8.1",
-	"description": "SQLite library with support for opening and writing databases, prepared statements, and more. This SQLite library is in pure javascript (compiled with emscripten).",
+	"version": "1.8.2",
+	"description": "SQLite package with support for opening and writing databases, prepared statements, and more. This package is a fork of sql.js with built-in es module and typescript support.",
 	"keywords": [
 		"sql",
 		"sqlite",
@@ -12,9 +12,7 @@
 		"data",
 		"query",
 		"statement",
-		"emscripten",
-		"asm",
-		"asm.js"
+		"emscripten"
 	],
 	"license": "MIT",
 	"main": "./dist/sql-wasm.js",
