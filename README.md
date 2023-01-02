@@ -1,5 +1,21 @@
 <img src="https://user-images.githubusercontent.com/552629/76405509-87025300-6388-11ea-86c9-af882abb00bd.png" width="40" height="40" />
 
+# Fork of [sql.js](https://github.com/sql-js/sql.js)
+This fork attempts to heal some annoyances with the sql.js package.
+
+Roadmap:
+- [ ] Add tests/examples for environments
+  - [ ] webpack 4/5 for the web
+  - [ ] create react app
+  - [ ] rollup
+  - [ ] nodejs
+  - [ ] deno
+  - [ ] ???
+- [x] Support es modules (i.e. `await import()` syntax) (https://github.com/sql-js/sql.js/issues/284)
+- [x] Add typescript types (https://github.com/sql-js/sql.js/issues/151)
+- [ ] Build a web-only distribution (i.e. without `webpack.resolve.fallback` junk)
+- [ ] Worker API
+
 # SQLite compiled to JavaScript
 
 [![CI status](https://github.com/sql-js/sql.js/workflows/CI/badge.svg)](https://github.com/sql-js/sql.js/actions)
