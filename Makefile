@@ -72,7 +72,7 @@ BITCODE_FILES = out/sqlite3.bc out/extension-functions.bc
 
 OUTPUT_WRAPPER_FILES = src/shell-pre.js src/shell-post.js
 
-SOURCE_API_FILES = src/api.js
+SOURCE_API_FILES = src/api.js src/externs.js
 
 EMFLAGS_PRE_JS_FILES = \
 	--pre-js src/api.js
