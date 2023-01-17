@@ -47,3 +47,10 @@ Module.StatementItearator = class StatementIterator {
   getRemainingSQL() {}
   // [Symbol.iterator]() {} // XXX: Causes closure compiler error? com.google.javascript.rhino.Node cannot be cast to com.google.javascript.rhino.Node$StringNode
 }
+
+Module.Database.QueryExecResult = class {
+  constructor() {
+    this.columns;
+    this.values;
+  }
+}
