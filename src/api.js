@@ -961,19 +961,19 @@ Module["onRuntimeInitialized"] = function onRuntimeInitialized() {
                 nextSqlPtr = getValue(pzTail, "i32");
                 // Empty statement
                 if (pStmt !== NULL) {
-                    var curresult = null;
+                    var curresult = {
+                        columns: [],
+                        values: [],
+                    };
+                    results.push(curresult);
+
                     stmt = new Statement(pStmt, this);
                     if (params != null) {
                         stmt.bind(params);
                     }
+
                     while (stmt["step"]()) {
-                        if (curresult === null) {
-                            curresult = {
-                                columns: stmt["getColumnNames"](),
-                                values: [],
-                            };
-                            results.push(curresult);
-                        }
+                        curresult["columns"] = stmt["getColumnNames"]()
                         curresult["values"].push(stmt["get"](null, config));
                     }
                     stmt["free"]();
