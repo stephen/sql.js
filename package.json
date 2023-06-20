@@ -1,6 +1,6 @@
 {
 	"name": "@stephen/sql.js",
-	"version": "1.8.6",
+	"version": "1.8.7",
 	"description": "SQLite package with support for opening and writing databases, prepared statements, and more. This package is a fork of sql.js with built-in es module and typescript support.",
 	"keywords": [
 		"sql",
