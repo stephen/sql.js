@@ -20,6 +20,7 @@
 	"browser": {
 		"./module.js": "./module-web.js"
 	},
+	"type": "module",
 	"types": "./types.d.ts",
 	"scripts": {
 		"build": "make",
