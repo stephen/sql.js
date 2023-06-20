@@ -23,6 +23,7 @@
 	"type": "module",
 	"types": "./types.d.ts",
 	"scripts": {
+		"prepublish": "npm run build",
 		"build": "make",
 		"rebuild": "npm run clean && npm run build",
 		"clean": "make clean",
