@@ -14,3 +14,9 @@ index.html
 Makefile
 emsdk_set_env.sh
 sqljs.zip
+emsdk/
+
+.devcontainer/
+.eslintrc.js
+.jsdoc.config.json
+.nojekyll
