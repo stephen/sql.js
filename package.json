@@ -1,6 +1,6 @@
 {
 	"name": "@stephen/sql.js",
-	"version": "1.8.7",
+	"version": "1.8.12",
 	"description": "SQLite package with support for opening and writing databases, prepared statements, and more. This package is a fork of sql.js with built-in es module and typescript support.",
 	"keywords": [
 		"sql",
@@ -15,7 +15,7 @@
 		"emscripten"
 	],
 	"license": "MIT",
-	"main": "./dist/sql-wasm.js",
+	"main": "./mjs.mjs",
 	"module": "./module.js",
 	"browser": {
 		"./module.js": "./module-web.js"
