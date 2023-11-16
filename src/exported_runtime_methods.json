@@ -3,5 +3,10 @@
 "stackAlloc",
 "stackSave",
 "stackRestore",
-"UTF8ToString"
+"UTF8ToString",
+"addFunction",
+"removeFunction",
+"allocateUTF8OnStack",
+"ALLOC_NORMAL",
+"allocate"
 ]
