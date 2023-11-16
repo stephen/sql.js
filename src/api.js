@@ -323,7 +323,7 @@ Module["onRuntimeInitialized"] = function onRuntimeInitialized() {
     */
     Statement.prototype["bind"] = function bind(values) {
         if (!this.stmt) {
-            throw "Statement closed";
+            throw new Error("Statement closed");
         }
         this["reset"]();
         if (Array.isArray(values)) return this.bindFromArray(values);
@@ -341,7 +341,7 @@ Module["onRuntimeInitialized"] = function onRuntimeInitialized() {
      */
     Statement.prototype["step"] = function step() {
         if (!this.stmt) {
-            throw "Statement closed";
+            throw new Error("Statement closed")
         }
         this.pos = 1;
         var ret = sqlite3_step(this.stmt);
@@ -614,9 +614,9 @@ Module["onRuntimeInitialized"] = function onRuntimeInitialized() {
             default:
                 break;
         }
-        throw (
-            "Wrong API use : tried to bind a value of an unknown type ("
-            + val + ")."
+        throw new Error(
+            "Wrong API use: tried to bind a value of an unknown type ("
+            + val + ") at position " + pos + ""
         );
     };
 
@@ -855,7 +855,7 @@ Module["onRuntimeInitialized"] = function onRuntimeInitialized() {
      */
     Database.prototype["run"] = function run(sql, params) {
         if (!this.db) {
-            throw "Database closed";
+            throw new Error("Database closed");
         }
         if (params) {
             var stmt = this["prepare"](sql, params);
@@ -938,7 +938,7 @@ Module["onRuntimeInitialized"] = function onRuntimeInitialized() {
     */
     Database.prototype["exec"] = function exec(sql, params, config) {
         if (!this.db) {
-            throw "Database closed";
+            throw new Error("Database closed");
         }
         var stack = stackSave();
         var stmt = null;
@@ -1044,7 +1044,7 @@ Module["onRuntimeInitialized"] = function onRuntimeInitialized() {
         // pointer to a statement, or null
         var pStmt = getValue(apiTemp, "i32");
         if (pStmt === NULL) {
-            throw "Nothing to prepare";
+            throw new Error("Nothing to prepare");
         }
         var stmt = new Statement(pStmt, this);
         if (params != null) {
@@ -1287,7 +1287,7 @@ Module["onRuntimeInitialized"] = function onRuntimeInitialized() {
         var step = aggregateFunctions["step"];
 
         if (!step) {
-            throw "An aggregate function must have a step function in " + name;
+            throw new Error("An aggregate function must have a step function in " + name);
         }
 
         // state is a state object; we'll use the pointer p to serve as the
