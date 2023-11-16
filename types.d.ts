@@ -9,10 +9,11 @@
 /// <reference types="emscripten" />
 
 type SqlValue = number | string | Uint8Array | null;
-type ParamsObject = Record<string, SqlValue>;
+type BindValue = SqlValue | boolean;
+type ParamsObject = Record<string, BindValue>;
 type ParamsCallback = (obj: ParamsObject) => void;
 type SqlJsConfig = Partial<EmscriptenModule>;
-type BindParams = SqlValue[] | ParamsObject | null;
+type BindParams = BindValue[] | ParamsObject | null;
 
 interface QueryExecResult {
   columns: string[];
@@ -292,19 +293,9 @@ declare class StatementIterator
 }
 
 export {
-  // types
-  SqlValue,
-  ParamsObject,
-  ParamsCallback,
-  SqlJsConfig,
   BindParams,
-
-  // interfaces
-  QueryExecResult,
-  StatementIteratorResult,
-  SqlJsStatic,
-  InitSqlJsStatic,
-
-  // classes
-  Database,
+  BindValue,
+  Database, InitSqlJsStatic, ParamsCallback, ParamsObject,
+  QueryExecResult, SqlJsConfig, SqlJsStatic, SqlValue, StatementIteratorResult
 };
+
