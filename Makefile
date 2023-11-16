@@ -84,7 +84,13 @@ dist/sql-wasm-debug.js: $(BITCODE_FILES) $(OUTPUT_WRAPPER_FILES) $(SOURCE_API_FI
 	rm out/tmp-raw.js
 
 .PHONY: optimized
-optimized: dist/sql-wasm.js dist/sql-wasm-module.js dist/sql-wasm-module-web.js
+optimized: dist/sql-wasm.js dist/sql-wasm-module.js dist/sql-wasm-module-web.js dist/sql-wasm.cjs
+
+
+dist/sql-wasm.cjs: dist/sql-wasm.js
+# Need to make the extension cjs so that import() on it will work. Otherwise,
+# import() treats it like an esmodule, which this is not.
+	cp dist/sql-wasm.js dist/sql-wasm.cjs
 
 dist/sql-wasm.js: $(BITCODE_FILES) $(OUTPUT_WRAPPER_FILES) $(SOURCE_API_FILES) $(EXPORTED_METHODS_JSON_FILES)
 	$(EMCC) $(EMFLAGS) $(EMFLAGS_OPTIMIZED) -s MODULARIZE=1 $(EMFLAGS_WASM) $(BITCODE_FILES) $(EMFLAGS_PRE_JS_FILES) -o $@
